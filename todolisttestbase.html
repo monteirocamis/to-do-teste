@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+    <head>
+        <title>To-Do list</title>
+        <meta charset="utf-8">      
+       
+        <style>
+        	.done{
+        		text-decoration: line-through;
+        		color: gray;
+        	}
+        </style>
+
+    </head>
+    
+    <body>
+        <div class="container">
+            <h1>Full stack 2019</h1>
+            <p>Digite seu próxima item da lista e clique em "Listar" </p>   
+            <p>Para riscar da lista, clique em cima do item já feito</p>  
+            
+            <input type="text" id="campoTxt">
+            <button id="btn">Listar</button>       
+            
+            <ul>
+                <li>Entrar pro Reprograma Full Stack noturno o/</li>
+
+                
+            </ul>
+
+        </div>
+        
+        <script>
+            
+(function(){
+    'use strict';
+    
+    var $ul = document.querySelector('ul');
+    var $lis = $ul.querySelectorAll ('li');
+    var $campoTxt = document.querySelector('#campoTxt');
+    var $btn = document.querySelector('#btn');
+    
+    $btn.addEventListener('click', addTarefa) ;
+    $campoTxt.addEventListener ('keyup', function(useEnter){
+    		if(useEnter.keyCode === 13 ){
+    			addTarefa();
+    		}
+    });
+    /* add tarefa na lista usando enter*/
+
+    for(var i = 0; i < $lis.length; i++){
+    	addEvent($lis[i]);
+    }
+    /*ativar a funçao toggleDone quando clicar em cima, toogleDone nao funciona em IE9*/
+
+    function toogleDone(){
+    	this.classList.toggle('done');
+    }
+
+
+    function addTarefa (){
+        
+       
+        var li = document.createElement ('li');
+        var text = document.createTextNode(campoTxt.value);
+        
+       li.appendChild(text);
+
+        $ul.appendChild(li);
+
+        $campoTxt.value = '';
+        /*limpa campo depois de apertar btn*/
+
+        addEvent(li);
+    }
+    
+function addEvent(li){
+    li.addEventListener('click', toogleDone);
+}
+/*alternar entre riscado e nao riscado quando ao evento click*/
+
+})()
+            
+        </script>
+        
+    </body>
+</html>
