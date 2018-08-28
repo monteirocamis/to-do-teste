@@ -16,17 +16,15 @@
     <body>
         <div class="container">
             <h1>Full stack 2019</h1>
-            <p>Digite seu próxima item da lista e clique em "Listar" </p>   
-            <p>Para riscar da lista, clique em cima do item já feito</p>  
-            
+            <p>Digite a tarefa e clique em "Listar" </p>   
+            <p>Para riscar a tarefa, clique em cima</p> 
+             <br>
             <input type="text" id="campoTxt">
             <button id="btn">Listar</button>       
             
             <ul>
                 <li>Entrar pro Reprograma Full Stack noturno o/</li>
-
-                
-            </ul>
+           </ul>
 
         </div>
         
@@ -53,6 +51,10 @@
     }
     /*ativar a funçao toggleDone quando clicar em cima, toogleDone nao funciona em IE9*/
 
+
+
+
+
     function toogleDone(){
     	this.classList.toggle('done');
     }
@@ -65,7 +67,6 @@
         var text = document.createTextNode(campoTxt.value);
         
        li.appendChild(text);
-
         $ul.appendChild(li);
 
         $campoTxt.value = '';
