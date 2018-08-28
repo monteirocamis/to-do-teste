@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+    <head>
+        <title>To-Do list</title>
+        <meta charset="utf-8">      
+          
+    </head>
+    
+    <body>
+        <div class="container">
+            <h1>Full stack 2019</h1>     
+            
+            <input type="text" id="campoTxt">
+            <button id="btn">Listar</button>       
+            
+            <ul>
+                <li>criar portfolio</li>
+                <li>estudar Javascript</li>
+                <li>não usar wordpress plugins com drag&drop </li>
+            </ul>
+
+        </div>
+        
+        <script>
+            
+(function(){
+    'use strict';
+    
+    var $ul = document.querySelector('ul');
+    var $campoTxt = document.querySelector('#campoTxt');
+    var $btn = document.querySelector('#btn');
+    
+    $btn.addEventListener('click', function(){
+        var task = '<li>' + $campoTxt.value + '</li>';
+        $ul.innerHTML += task;
+        
+        $campoTxt.value = '';
+        $campoTxt.focus();
+    })
+    
+    
+})()
+            
+        </script>
+        
+    </body>
+</html>
