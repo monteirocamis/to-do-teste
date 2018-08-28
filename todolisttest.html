@@ -32,7 +32,7 @@
     
     $btn.addEventListener('click', function(){
         var task = '<li>' + $campoTxt.value + '</li>';
-        $ul.innerHTML += task;
+        $ul.innerHTML = task + $ul.innerHTML;
         
         $campoTxt.value = '';
         $campoTxt.focus();
